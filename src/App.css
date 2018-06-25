@@ -8,7 +8,9 @@ nav {
 nav:hover{
     box-shadow: 0 0 5px grey;
     border-bottom-color: rgba(255,255,255,0);
+
 }
 .title{
     color: #424242;
 }
+

@@ -1,19 +1,27 @@
 {
+  "homepage": "https://tomaszdomagala.github.io/MachineLearningStorage",
   "name": "linearregression1",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.1",
+    "popper.js": "^1.14.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
+    "react-tooltip": "^3.6.1",
     "styled-components": "^3.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.2.0"
   }
 }

@@ -1,6 +1,16 @@
-p::before{
+.home-link {
+    color: #424242;
+    transition:all 100ms ease-out;
+}
+.home-link:hover {
+    text-decoration: none;
+    margin-left: 0.5rem;
+    color: #424242;
+
+}
+.home-link::before {
     content: "• ";
+    color: #C2185B;
+
 }
-p::after{
-    content: " •";
-}
+
