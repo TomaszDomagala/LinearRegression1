@@ -5,6 +5,8 @@ import './home.css';
 const Home = () => {
     return (
         <div className="container">
+            <p><Link to="/GeneticAlgorithmText" className='home-link'>Genetic algorithm with text finding example</Link>
+            </p>
             <p><Link to="/LinearRegressionOLS" className='home-link'>Linear Regression with Ordinary Least
                 Squares</Link></p>
             <hr/>

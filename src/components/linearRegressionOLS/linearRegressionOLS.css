@@ -1,10 +1,17 @@
+.tip {
+    color: #C2185B;
+}
+
 .link {
     color: #C2185B;
 }
-.link:hover{
+
+.link:hover {
     text-decoration: none;
     color: #880E4F;
 }
-.math{
+
+.math {
     font-style: italic;
 }
+

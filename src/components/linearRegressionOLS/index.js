@@ -3,10 +3,6 @@ import './linearRegressionOLS.css'
 import ReactTooltip from 'react-tooltip';
 import MathJax from 'react-mathjax';
 
-const tex = `f(x) = \\int_{-\\infty}^\\infty
-    \\hat f(\\xi)\\,e^{2 \\pi i \\xi x}
-    \\,d\\xi`;
-const lineFormula = `y = m*x + b`;
 
 class LinearRegressionOLS extends Component {
     constructor() {
@@ -102,7 +98,7 @@ class LinearRegressionOLS extends Component {
 
         return (
             <div className="container"><h3>Linear Regression with Ordinary Least Squares</h3>
-                <p className="m-0">Create data points by clicking on canvas</p>
+                <p className={this.state.points.length < 2 ? "m-0 tip" : "m-0"}>Create data points by clicking on canvas</p>
                 <div style={{textAlign: "center"}}>
 
                     <div ref="canvasParent">

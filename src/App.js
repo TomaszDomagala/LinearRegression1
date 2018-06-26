@@ -4,6 +4,7 @@ import LinearRegressionOLS from "./components/linearRegressionOLS"
 import Home from './components/home';
 import About from './components/about';
 import AboutMe from './components/aboutMe'
+import GeneticAlgorithmText from'./components/geneticAlgorithmText'
 import './App.css';
 
 
@@ -27,6 +28,7 @@ class App extends Component {
                     <Route exact path="/" component={Home}/>
                     <Route path="/about" component={About}/>
                     <Route path="/aboutme" component={AboutMe}/>
+                    <Route path="/GeneticAlgorithmText" component={GeneticAlgorithmText}/>
                     <Route path="/LinearRegressionOLS" component={LinearRegressionOLS}/>
                 </div>
             </Router>
