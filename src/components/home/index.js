@@ -5,11 +5,13 @@ import './home.css';
 const Home = () => {
     return (
         <div className="container">
-            <p><Link to="/about" className='home-link'>About storage</Link></p>
-            <p><Link to="/aboutme" className='home-link'>About me</Link></p>
-            <hr/>
             <p><Link to="/LinearRegressionOLS" className='home-link'>Linear Regression with Ordinary Least
                 Squares</Link></p>
+            <hr/>
+            <p><Link to="/about" className='home-link'>About storage</Link></p>
+            <p><Link to="/aboutme" className='home-link'>About me</Link></p>
+
+
         </div>
     );
 };

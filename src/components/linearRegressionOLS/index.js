@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
 import './linearRegressionOLS.css'
 import ReactTooltip from 'react-tooltip';
+import MathJax from 'react-mathjax';
+
+const tex = `f(x) = \\int_{-\\infty}^\\infty
+    \\hat f(\\xi)\\,e^{2 \\pi i \\xi x}
+    \\,d\\xi`;
+const lineFormula = `y = m*x + b`;
 
 class LinearRegressionOLS extends Component {
     constructor() {
@@ -82,8 +88,9 @@ class LinearRegressionOLS extends Component {
 
     componentDidMount() {
         //TODO aktualnie canvas jest renderowany dwa razy: raz z width z this.state a drugi z refa fajnie jakby to usprawnic dla clean codu
-        if (this.refs.canvasParent && this.refs.canvasParent.clientWidth !== this.state.width)
-            this.setState({width: this.refs.canvasParent.clientWidth})
+        if (this.refs.canvasParent && this.refs.canvasParent.clientWidth !== this.state.width) {
+            this.setState({width: this.refs.canvasParent.clientWidth});
+        }
 
     }
 
@@ -91,8 +98,11 @@ class LinearRegressionOLS extends Component {
         this.clearCanvas();
         this.drawLine();
         this.state.points.forEach(point => this.drawPoint(point));
+
+
         return (
             <div className="container"><h3>Linear Regression with Ordinary Least Squares</h3>
+                <p className="m-0">Create data points by clicking on canvas</p>
                 <div style={{textAlign: "center"}}>
 
                     <div ref="canvasParent">
@@ -101,6 +111,24 @@ class LinearRegressionOLS extends Component {
                                 onClick={this.handleClick}/>
                     </div>
                 </div>
+
+                <h5>What just happened?</h5>
+                <p>We've created a line that minimizes distances between points and this line in order to predict new
+                    data points.</p>
+                <h5>How it works:</h5>
+                <MathJax.Provider>
+                    <p>Our line is in <MathJax.Node inline formula={'y=mx + b'}/> form. To find m
+                        and b values we can use two formulas:</p>
+                    <div className='row'>
+                        <div className='col-auto'><MathJax.Node
+                            formula={'m=\\frac{\\sum_{i=0}^n (x_i-\\bar  x)(y_i-\\bar y)}{\\sum_{i=0}^n(x_i-\\bar x)^2}'}/>
+                        </div>
+                        <div className='col-auto'>
+                            <MathJax.Node className="pt-3" formula={'b=\\bar y - m\\bar x'}/>
+                        </div>
+
+                    </div>
+                </MathJax.Provider>
                 <p>This is good method only for linear data sets. Check
                     <a target="_blank" rel="noopener noreferrer" className="link" data-tip="Anscombe's quartet"
                        href="https://en.wikipedia.org/wiki/Anscombe%27s_quartet#/media/File:Anscombe%27s_quartet_3.svg"
@@ -114,7 +142,7 @@ class LinearRegressionOLS extends Component {
                         2</a>.
                 </p>
                 <p>More on <a rel="noopener noreferrer" className="link" target="_blank"
-                       href="https://scholar.google.pl/scholar?q=Ordinary+Least+Squares&hl=pl&as_sdt=0&as_vis=1&oi=scholart">
+                              href="https://scholar.google.pl/scholar?q=Ordinary+Least+Squares&hl=pl&as_sdt=0&as_vis=1&oi=scholart">
                     Google Scholar</a>.</p>
                 <ReactTooltip effect="solid"/>
             </div>
