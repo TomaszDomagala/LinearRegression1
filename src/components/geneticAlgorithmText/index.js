@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ReactTooltip from 'react-tooltip';
 
 import DNA from "./DNA";
 
@@ -66,7 +65,7 @@ class GeneticAlgorithm extends Component {
     render() {
         return (
             <div className="container">
-                <h3>Genetic Algorithm with text finding example <span style={{color: '#C2185B'}}>//WIP</span></h3>
+                <h3>Genetic Algorithm with text finding example <span style={{color: '#C2185B'}}>/WIP</span></h3>
                 <p>population: {this.state.totalPopulation} mutation rate: {this.state.mutationRate * 100}% total
                     generations: {this.state.totalGenerations} </p>
                 {this.state.population.map((x, i) => {

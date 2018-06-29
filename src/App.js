@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import LinearRegressionOLS from "./components/linearRegressionOLS"
+import MathJax from 'react-mathjax';
 import Home from './components/home';
 import About from './components/about';
 import AboutMe from './components/aboutMe'
-import GeneticAlgorithmText from'./components/geneticAlgorithmText'
+
+import GeneticAlgorithmText from './components/geneticAlgorithmText'
+import LinearRegressionOLS from "./components/linearRegressionOLS"
+import LinearRegressionGD from "./components/linearRegressionGD"
+
 import './App.css';
 
 
@@ -16,20 +20,23 @@ class App extends Component {
         return (
             <Router>
                 <div>
-                    <nav className="navbar justify-content-center mb-4">
-                        <Link to="/">
+                    <MathJax.Provider>
+                        <nav className="navbar justify-content-center mb-4">
+                            <Link to="/">
                             <span className="navbar-brand mb-0 h1 text-center title"
                                   style={{fontSize: "1.5rem", fontWeight: "bold"}}>
                                 ML Storage
                             </span>
-                        </Link>
-                    </nav>
+                            </Link>
+                        </nav>
 
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/about" component={About}/>
-                    <Route path="/aboutme" component={AboutMe}/>
-                    <Route path="/GeneticAlgorithmText" component={GeneticAlgorithmText}/>
-                    <Route path="/LinearRegressionOLS" component={LinearRegressionOLS}/>
+                        <Route exact path="/" component={Home}/>
+                        <Route path="/about" component={About}/>
+                        <Route path="/aboutme" component={AboutMe}/>
+                        <Route path="/GeneticAlgorithmText" component={GeneticAlgorithmText}/>
+                        <Route path="/LinearRegressionOLS" component={LinearRegressionOLS}/>
+                        <Route path="/LinearRegressionGD" component={LinearRegressionGD}/>
+                    </MathJax.Provider>
                 </div>
             </Router>
         );

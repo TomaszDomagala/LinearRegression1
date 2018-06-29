@@ -2,14 +2,15 @@ nav {
     background-color: #FAFAFA;
     -webkit-transition: all 100ms ease-out;
     border-bottom: #E0E0E0 1px solid;
-    transition:all 100ms ease-out;
-}
-nav:hover{
-    box-shadow: 0 0 5px grey;
-    border-bottom-color: rgba(255,255,255,0);
+    transition: all 100ms ease-out;
 }
 
-.title{
+nav:hover {
+    box-shadow: 0 0 5px grey;
+    border-bottom-color: rgba(255, 255, 255, 0);
+}
+
+.title {
     color: #212121;
 }
 

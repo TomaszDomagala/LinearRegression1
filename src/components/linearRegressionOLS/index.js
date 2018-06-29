@@ -71,6 +71,7 @@ class LinearRegressionOLS extends Component {
         context.moveTo(0, b);
         context.lineTo(canvas.width, m * canvas.width + b);
         context.stroke();
+        console.log(m,b)
     }
 
     handleClick(e) {
@@ -84,21 +85,22 @@ class LinearRegressionOLS extends Component {
 
     componentDidMount() {
         //TODO aktualnie canvas jest renderowany dwa razy: raz z width z this.state a drugi z refa fajnie jakby to usprawnic dla clean codu
-        if (this.refs.canvasParent && this.refs.canvasParent.clientWidth !== this.state.width) {
-            this.setState({width: this.refs.canvasParent.clientWidth});
-        }
+        this.setState({width: this.refs.canvasParent.clientWidth});
 
     }
+
+
 
     render() {
         this.clearCanvas();
         this.drawLine();
         this.state.points.forEach(point => this.drawPoint(point));
 
-
         return (
-            <div className="container"><h3>Linear Regression with Ordinary Least Squares</h3>
-                <p className={this.state.points.length < 2 ? "m-0 tip" : "m-0"}>Create data points by clicking on canvas</p>
+            <div className="container">
+                <h3>Linear Regression with Ordinary Least Squares</h3>
+                <p className={this.state.points.length < 2 ? "m-0 tip" : "m-0"}>Create data points by clicking on
+                    canvas</p>
                 <div style={{textAlign: "center"}}>
 
                     <div ref="canvasParent">
@@ -111,24 +113,25 @@ class LinearRegressionOLS extends Component {
                 <h5>What just happened?</h5>
                 <p>We've created a line that minimizes distances between points and this line in order to predict new
                     data points.</p>
-                <h5>How it works:</h5>
-                <MathJax.Provider>
-                    <p>Our line is in <MathJax.Node inline formula={'y=mx + b'}/> form. To find m
-                        and b values we can use two formulas:</p>
-                    <div className='row'>
-                        <div className='col-auto'><MathJax.Node
-                            formula={'m=\\frac{\\sum_{i=0}^n (x_i-\\bar  x)(y_i-\\bar y)}{\\sum_{i=0}^n(x_i-\\bar x)^2}'}/>
-                        </div>
-                        <div className='col-auto'>
-                            <MathJax.Node className="pt-3" formula={'b=\\bar y - m\\bar x'}/>
-                        </div>
 
+                <h5>How it works:</h5>
+                <p>Our line is in <MathJax.Node inline formula={'y=mx + b'}/> form. To find m
+                    and b values we can use two formulas:</p>
+
+                <div className='row'>
+                    <div className='col-auto'><MathJax.Node
+                        formula={'m=\\frac{\\sum_{i=0}^n (x_i-\\bar  x)(y_i-\\bar y)}{\\sum_{i=0}^n(x_i-\\bar x)^2}'}/>
                     </div>
-                </MathJax.Provider>
+                    <div className='col-auto'>
+                        <MathJax.Node className="pt-3" formula={'b=\\bar y - m\\bar x'}/>
+                    </div>
+                </div>
+
                 <p>This is good method only for linear data sets. Check
                     <a target="_blank" rel="noopener noreferrer" className="link" data-tip="Anscombe's quartet"
                        href="https://en.wikipedia.org/wiki/Anscombe%27s_quartet#/media/File:Anscombe%27s_quartet_3.svg"
                     > this</a> out to see what i mean.</p>
+
                 <h5>Resources:</h5>
                 <p>Daniel Shiffman's videos on this topic
                     <a rel="noopener noreferrer" className="link" target="_blank"
