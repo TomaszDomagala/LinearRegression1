@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "big-integer": "^1.6.32",
     "bootstrap": "^4.1.1",
     "popper.js": "^1.14.3",
     "react": "^16.4.1",
