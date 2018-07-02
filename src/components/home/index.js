@@ -10,6 +10,7 @@ const Home = () => {
             <p><Link to="/LinearRegressionOLS" className='home-link'>Linear Regression with Ordinary Least
                 Squares</Link></p>
             <p><Link to="LinearRegressionGD" className='home-link'>Linear Regression with Gradient Descent</Link></p>
+            <p><Link to="/Perceptron" className='home-link'>Clasification with Perceptron</Link></p>
             <hr/>
             <p><Link to="/about" className='home-link'>About storage</Link></p>
             <p><Link to="/aboutme" className='home-link'>About me</Link></p>

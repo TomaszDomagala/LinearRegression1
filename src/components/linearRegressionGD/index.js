@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import ReactTooltip from 'react-tooltip';
-import {map} from '../../utils'
+import {mapRange} from '../../utils'
 
 let m = 0, b = 0;
 
@@ -21,8 +21,8 @@ class LinearRegressionGD extends Component {
         const {width, height} = this.state;
         const {x, y} = point;
         return {
-            x: map(x, 0, width, 0, width / 10),
-            y: map(y, 0, height, 0, height / 10)
+            x: mapRange(x, 0, width, 0, width / 10),
+            y: mapRange(y, 0, height, 0, height / 10)
         }
     }
 
@@ -30,8 +30,8 @@ class LinearRegressionGD extends Component {
         const {width, height} = this.state;
         const {x, y} = point;
         return {
-            x: map(x, 0, width / 10, 0, width),
-            y: map(y, 0, height / 10, 0, height)
+            x: mapRange(x, 0, width / 10, 0, width),
+            y: mapRange(y, 0, height / 10, 0, height)
         }
     }
 
@@ -72,7 +72,7 @@ class LinearRegressionGD extends Component {
         const canvas = this.refs.canvas;
         if (!canvas || this.state.points.length < 2) return;
         const context = canvas.getContext("2d");
-        const displayB = map(b, 0, this.state.height / 10, 0, this.state.height);
+        const displayB = mapRange(b, 0, this.state.height / 10, 0, this.state.height);
         context.moveTo(0, Math.round(displayB));
         context.lineTo(Math.round(canvas.width), Math.round(m * canvas.width + displayB));
         context.stroke();
@@ -94,15 +94,14 @@ class LinearRegressionGD extends Component {
     gradientDescent() {
         if (this.state.points.length < 2) return;
 
-
         const m_learning_rate = 0.0001;
         const b_learning_rate = 0.05;
         this.state.points.forEach(point => {
-            const x = point.x, y = point.y;
+            const {x, y} = point;
             const guess = m * x + b;
             const error = y - guess;
-            m = m + error * x * m_learning_rate;
-            b = b + error * b_learning_rate;
+            m += error * x * m_learning_rate;
+            b += error * b_learning_rate;
         });
 
         this.draw();
@@ -110,7 +109,7 @@ class LinearRegressionGD extends Component {
 
     componentDidMount() {
         const intervalId = setInterval(this.gradientDescent, 10);
-        this.setState({width: this.refs.canvasParent.clientWidth, intervalId});
+        this.setState({width: Math.min(this.refs.canvasParent.clientWidth, 1100), intervalId});
 
 
     }

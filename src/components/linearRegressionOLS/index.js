@@ -39,7 +39,26 @@ class LinearRegressionOLS extends Component {
         context.arc(point.x, point.y, 3, 0, 2 * Math.PI);
         context.fillStyle = "#C2185B";
         context.fill();
+    }
 
+    drawPoints() {
+        this.state.points.forEach(point => this.drawPoint(point));
+    }
+
+    drawLine() {
+        const canvas = this.refs.canvas;
+        if (!canvas || this.state.points < 2) return;
+        const context = canvas.getContext("2d");
+        const {m, b} = this.calculateLinearRegression();
+        context.moveTo(0, b);
+        context.lineTo(canvas.width, m * canvas.width + b);
+        context.stroke();
+    }
+
+    draw() {
+        this.clearCanvas();
+        this.drawPoints();
+        this.drawLine();
     }
 
     calculateLinearRegression() {
@@ -63,15 +82,6 @@ class LinearRegressionOLS extends Component {
         return {m, b}
     }
 
-    drawLine() {
-        const canvas = this.refs.canvas;
-        if (!canvas || this.state.points < 2) return;
-        const context = canvas.getContext("2d");
-        const {m, b} = this.calculateLinearRegression();
-        context.moveTo(0, b);
-        context.lineTo(canvas.width, m * canvas.width + b);
-        context.stroke();
-    }
 
     handleClick(e) {
         const newPoint = this.getMousePos(e);
@@ -83,15 +93,12 @@ class LinearRegressionOLS extends Component {
 
     componentDidMount() {
         //TODO aktualnie canvas jest renderowany dwa razy: raz z width z this.state a drugi z refa fajnie jakby to usprawnic dla clean codu
-        this.setState({width: Math.min(this.refs.canvasParent.clientWidth, 1100)});
-
+        this.setState({width: Math.min(this.refs.canvasParent.clientWidth, 1110)});
     }
 
 
     render() {
-        this.clearCanvas();
-        this.drawLine();
-        this.state.points.forEach(point => this.drawPoint(point));
+        this.draw();
 
         return (
             <div className="container">

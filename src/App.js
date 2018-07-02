@@ -8,6 +8,7 @@ import AboutMe from './components/aboutMe'
 import GeneticAlgorithmText from './components/geneticAlgorithmText'
 import LinearRegressionOLS from "./components/linearRegressionOLS"
 import LinearRegressionGD from "./components/linearRegressionGD"
+import Perceptron from './components/perceptron'
 
 import './App.css';
 
@@ -36,6 +37,7 @@ class App extends Component {
                         <Route path="/GeneticAlgorithmText" component={GeneticAlgorithmText}/>
                         <Route path="/LinearRegressionOLS" component={LinearRegressionOLS}/>
                         <Route path="/LinearRegressionGD" component={LinearRegressionGD}/>
+                        <Route path="/Perceptron" component={Perceptron}/>
                     </MathJax.Provider>
                 </div>
             </Router>
