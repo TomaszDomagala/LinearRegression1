@@ -153,9 +153,9 @@ class Perceptron extends Component {
                 </div>
                 <div className="row">
                     <div className='col'>
-                        {this.state.points.filter(({x, y, label}) => label !== neuron.guess(x, y)).length}
+                        <p>Points with wrong classification: {this.state.points.filter(({x, y, label}) => label !== neuron.guess(x, y)).length}</p>
                     </div>
-                    <div className='col text-right'>
+                    <div className='col text-center'>
                         <Button onClick={this.trainNeuron}>Train!</Button>
                     </div>
                     <div className="col">
