@@ -32,6 +32,7 @@ class App extends Component {
                         </nav>
 
                         <Route exact path="/" component={Home}/>
+                        <Route path="/MachineLearningStorage" component={Home}/>
                         <Route path="/about" component={About}/>
                         <Route path="/aboutme" component={AboutMe}/>
                         <Route path="/GeneticAlgorithmText" component={GeneticAlgorithmText}/>
