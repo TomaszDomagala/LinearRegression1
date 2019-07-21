@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/MachineLearningStorage/static/css/main.8c769c54.chunk.css",
+    "main.js": "/MachineLearningStorage/static/js/main.57ee44ed.chunk.js",
+    "main.js.map": "/MachineLearningStorage/static/js/main.57ee44ed.chunk.js.map",
+    "runtime~main.js": "/MachineLearningStorage/static/js/runtime~main.3a686455.js",
+    "runtime~main.js.map": "/MachineLearningStorage/static/js/runtime~main.3a686455.js.map",
+    "static/js/2.a03ca3c1.chunk.js": "/MachineLearningStorage/static/js/2.a03ca3c1.chunk.js",
+    "static/js/2.a03ca3c1.chunk.js.map": "/MachineLearningStorage/static/js/2.a03ca3c1.chunk.js.map",
+    "index.html": "/MachineLearningStorage/index.html",
+    "precache-manifest.56c16fd132cc85427ca1a93ab4f32faa.js": "/MachineLearningStorage/precache-manifest.56c16fd132cc85427ca1a93ab4f32faa.js",
+    "service-worker.js": "/MachineLearningStorage/service-worker.js",
+    "static/css/main.8c769c54.chunk.css.map": "/MachineLearningStorage/static/css/main.8c769c54.chunk.css.map"
+  }
+}
